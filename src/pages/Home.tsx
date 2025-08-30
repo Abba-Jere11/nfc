@@ -3,7 +3,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeader } from "@/components/ui/section-header";
 import { StatsCounter } from "@/components/ui/stats-counter";
-import { ArrowRight, ChevronDown, Award, Users, Leaf, Globe, Target, Zap, Shield, TrendingUp, Factory, Wheat } from "lucide-react";
+import { 
+  ArrowRight, ChevronDown, Award, Users, Leaf, Globe, 
+  Zap, Shield, TrendingUp, Factory, Wheat 
+} from "lucide-react";
+
 import heroImage from "@/assets/hero-agriculture.jpg";
 import fertilizersImage from "@/assets/ferttt-removebg-preview.png";
 import meatsImage from "@/assets/meatbg.png";
@@ -14,6 +18,7 @@ import wheat from "@/assets/wheat-removebg-preview.png";
 import Footer from "@/components/footer";
 import Partners from "@/components/partners";
 
+// Data
 const subsidiaries = [
   {
     name: "Yobe Fertilizers",
@@ -86,123 +91,92 @@ const features = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "Nigerian Food Corporation has transformed our farming operations. Their fertilizers have increased our yields by 45%.",
-    author: "Musa Ibrahim",
-    title: "Commercial Farmer, Kano State",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
-  },
-  {
-    quote: "The quality of their meat products is exceptional. We've been partners for 5 years and they never disappoint.",
-    author: "Sarah Adeyemi",
-    title: "Restaurant Owner, Lagos",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b550?w=80&h=80&fit=crop&crop=face"
-  },
-  {
-    quote: "Their flour mills produce the finest quality flour. Our bakery has seen tremendous growth since partnering with them.",
-    author: "Ahmed Mohammed",
-    title: "Bakery Chain CEO, Abuja",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
-  },
-];
-
 export default function Home() {
   const scrollToSubsidiaries = () => {
-    document.getElementById('subsidiaries')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("subsidiaries")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen overflow-hidden">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-element"
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 hero-overlay"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
-        <div className="relative z-10 text-center text-white px-6 max-w-7xl mx-auto">
-          <div className="floating">
-            <Badge className="mb-8 bg-secondary/20 text-secondary border-secondary/30 px-6 py-2 text-lg animate-fade-in">
-              Nigeria's Premier Agricultural Corporation
-            </Badge>
-          </div>
-          
-          <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-8 animate-fade-in animate-delay-200 text-shadow">
-            Feeding the Nation,
-            <br />
+
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto">
+          <Badge className="mb-6 bg-secondary/20 text-secondary border-secondary/30 px-4 py-2 text-sm sm:text-base md:text-lg">
+            Nigeria's Premier Agricultural Corporation
+          </Badge>
+
+          <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Feeding the Nation, <br />
             <span className="text-gradient-secondary">Growing the Future</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in animate-delay-400">
-            Leading Nigeria's agricultural transformation through innovation, sustainability, 
+
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+            Leading Nigeria's agricultural transformation through innovation, sustainability,
             and excellence in food production across five specialized subsidiaries.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in animate-delay-600">
-            <Button 
-              size="lg" 
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
               onClick={scrollToSubsidiaries}
-              className="bg-secondary hover:bg-secondary-dark text-secondary-foreground font-bold px-10 py-6 text-xl rounded-xl transition-spring hover-glow shadow-strong"
+              className="bg-secondary hover:bg-secondary-dark text-secondary-foreground font-bold px-6 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl rounded-lg sm:rounded-xl shadow-lg"
             >
               Explore Subsidiaries
-              <ArrowRight className="ml-3 h-6 w-6" />
+              <ArrowRight className="ml-2 sm:ml-3 h-5 sm:h-6 w-5 sm:w-6" />
             </Button>
-            
-            <Button 
-              size="lg" 
+
+            <Button
+              size="lg"
               variant="outline"
               onClick={scrollToAbout}
-              className="border-2 border-white text-foreground hover:bg-white hover:text-primary font-bold px-10 py-6 text-xl rounded-xl transition-spring backdrop-blur-sm"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-6 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl rounded-lg sm:rounded-xl backdrop-blur-sm"
             >
               Learn More
             </Button>
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce floating-delayed">
-          <button onClick={scrollToSubsidiaries} className="text-white hover:text-secondary transition-smooth p-4 rounded-full bg-white/10 backdrop-blur-sm">
-            <ChevronDown className="h-8 w-8" />
+        <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <button
+            onClick={scrollToSubsidiaries}
+            className="text-white hover:text-secondary transition p-3 sm:p-4 rounded-full bg-white/10 backdrop-blur-sm"
+          >
+            <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8" />
           </button>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-secondary rounded-full animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-48 h-48 bg-tertiary rounded-full animate-float floating-delayed"></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <section className="py-16 sm:py-20 bg-primary text-primary-foreground relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <SectionHeader
             title="Transforming Nigerian Agriculture"
             subtitle="Our Impact"
             description="Leading the agricultural revolution with measurable results across Nigeria"
             titleClassName="text-primary-foreground"
           />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <Card 
-                key={achievement.label} 
-                className={`text-center card-elevated hover-lift border-0 animate-fade-in animate-delay-${(index + 1) * 200}`}
-              >
-                <CardContent className="p-8">
-                  <achievement.icon className={`h-16 w-16 mx-auto mb-6 ${achievement.color}`} />
-                  <div className="text-4xl font-bold text-primary mb-3">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-10">
+            {achievements.map((achievement) => (
+              <Card key={achievement.label} className="text-center border-0 shadow-lg">
+                <CardContent className="p-6 sm:p-8">
+                  <achievement.icon className={`h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-4 sm:mb-6 ${achievement.color}`} />
+                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
                     <StatsCounter end={achievement.value} suffix={achievement.suffix} />
                   </div>
-                  <div className="text-muted-foreground font-semibold text-lg">
-                    {achievement.label}
-                  </div>
+                  <div className="text-sm sm:text-base opacity-90">{achievement.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -211,56 +185,34 @@ export default function Home() {
       </section>
 
       {/* Subsidiaries Section */}
-      <section id="subsidiaries" className="py-32 bg-background-secondary relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-transparent to-secondary"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <section id="subsidiaries" className="py-24 sm:py-32 bg-background-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionHeader
             title="Our Subsidiaries"
             subtitle="Five Pillars of Excellence"
-            description="Specialized companies driving Nigeria's agricultural excellence and food security across the nation with world-class operations and cutting-edge technology."
+            description="Specialized companies driving Nigeria's agricultural excellence and food security across the nation with world-class operations and technology."
           />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
-            {subsidiaries.map((subsidiary, index) => (
-              <Card 
-                key={subsidiary.name} 
-                className={`group card-premium hover-lift animate-fade-in animate-delay-${(index + 1) * 100} overflow-hidden`}
-              >
-                <div className="relative overflow-hidden">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 mt-10">
+            {subsidiaries.map((subsidiary) => (
+              <Card key={subsidiary.name} className="overflow-hidden group shadow-lg">
+                <div className="relative">
                   <img
                     src={subsidiary.image}
                     alt={subsidiary.name}
-                    className="w-full h-80 object-cover transition-spring group-hover:scale-110"
+                    className="w-full h-56 sm:h-64 md:h-72 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-smooth"></div>
-                  
-                  <div className="absolute top-6 left-6">
-                    <Badge className={`bg-${subsidiary.color} text-${subsidiary.color}-foreground px-4 py-2 font-bold`}>
+                  <div className="absolute top-4 left-4">
+                    <Badge className={`bg-${subsidiary.color} text-${subsidiary.color}-foreground px-3 sm:px-4 py-1 sm:py-2`}>
                       {subsidiary.stats}
                     </Badge>
                   </div>
-                  
-                  <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-smooth">
-                    <Button size="sm" className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30">
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
                 </div>
-                
-                <CardContent className="p-8">
-                  <h3 className="font-playfair text-2xl font-bold text-primary mb-4">
-                    {subsidiary.name}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    {subsidiary.description}
-                  </p>
-                  
-                  <div className="flex items-center text-secondary font-semibold group-hover:text-secondary-dark transition-smooth">
-                    <TrendingUp className="h-5 w-5 mr-2" />
+                <CardContent className="p-6 sm:p-8">
+                  <h3 className="font-playfair text-xl sm:text-2xl font-bold text-primary mb-3">{subsidiary.name}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4">{subsidiary.description}</p>
+                  <div className="flex items-center text-secondary font-semibold">
+                    <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                     <span>Industry Leading Performance</span>
                   </div>
                 </CardContent>
@@ -271,35 +223,28 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <Partners/>
+      <Partners />
 
-      {/* Sustainability Section */}
-      <section className="py-32 bg-background overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Features Section */}
+      <section className="py-24 sm:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionHeader
             title="Agricultural Excellence"
             subtitle="Why Choose Us"
             description="Commitment to quality, innovation, and sustainability drives everything we do"
           />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card 
-                key={feature.title} 
-                className={`group text-center hover-lift card-elevated animate-fade-in animate-delay-${(index + 1) * 150}`}
-              >
-                <CardContent className="p-8">
-                  <div className="mb-6 flex justify-center">
-                    <div className={`p-4 rounded-2xl bg-${feature.color}/10 group-hover:bg-${feature.color}/20 transition-smooth`}>
-                      <feature.icon className={`h-12 w-12 text-${feature.color} group-hover:scale-110 transition-spring`} />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-10">
+            {features.map((feature) => (
+              <Card key={feature.title} className="text-center shadow-md">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex justify-center mb-4 sm:mb-6">
+                    <div className={`p-4 rounded-xl bg-${feature.color}/10`}>
+                      <feature.icon className={`h-8 w-8 sm:h-12 sm:w-12 text-${feature.color}`} />
                     </div>
                   </div>
-                  <h3 className="font-playfair text-xl font-bold text-primary mb-4">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <h3 className="font-playfair text-lg sm:text-xl font-bold text-primary mb-3">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -307,46 +252,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-  
-
-      {/* Call to Action Section */}
-      <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary-dark to-accent opacity-90"></div>
-          <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/20 rounded-full -translate-x-48 -translate-y-48 animate-pulse-glow"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-tertiary/20 rounded-full translate-x-48 translate-y-48 animate-pulse-glow floating"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto text-center px-6 relative z-10">
-          <h2 className="font-playfair text-5xl lg:text-6xl font-bold mb-8 animate-fade-in text-shadow">
+      {/* CTA Section */}
+      <section className="py-24 sm:py-32 bg-primary text-primary-foreground relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary-dark to-accent opacity-90"></div>
+        <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6">
+          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Partner with Nigeria's Agricultural Leader
           </h2>
-          <p className="text-xl lg:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed animate-fade-in animate-delay-200">
-            Join us in building a sustainable food future for Nigeria and beyond. 
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-3xl mx-auto">
+            Join us in building a sustainable food future for Nigeria and beyond.
             Experience world-class agricultural excellence and innovation.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in animate-delay-400">
-            <Button 
-              size="lg"
-              className="bg-secondary hover:bg-secondary-dark text-secondary-foreground font-bold px-12 py-6 text-xl rounded-xl transition-spring hover-glow shadow-strong"
-            >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-secondary hover:bg-secondary-dark text-secondary-foreground font-bold px-6 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl rounded-lg sm:rounded-xl">
               Get In Touch
-              <ArrowRight className="ml-3 h-6 w-6" />
+              <ArrowRight className="ml-2 sm:ml-3 h-5 sm:h-6 w-5 sm:w-6" />
             </Button>
-            <Button 
-              size="lg"
+            <Button
               variant="outline"
-              className="border-2 border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary font-bold px-12 py-6 text-xl rounded-xl transition-spring backdrop-blur-sm"
+              className="border-2 border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary font-bold px-6 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl rounded-lg sm:rounded-xl"
             >
               View Gallery
             </Button>
           </div>
         </div>
-        
       </section>
-      <Footer/>
+
+      <Footer />
     </div>
   );
 }

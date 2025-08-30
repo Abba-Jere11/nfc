@@ -51,7 +51,7 @@ const partners: Partner[] = [
   },
 ];
 
-const Partners = () => {
+const Subsidiaries = () => {
   return (
     <section className="py-20 px-6 bg-gradient-subtle min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -110,4 +110,4 @@ const Partners = () => {
   );
 };
 
-export default Partners;
+export default Subsidiaries;
