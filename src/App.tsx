@@ -15,7 +15,6 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToTopButton from "./components/scroll-to-top-button";
-import "leaflet/dist/leaflet.css";
 import InvestmentPlan from "./pages/Investment";
 
 
