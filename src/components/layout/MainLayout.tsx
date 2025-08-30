@@ -6,12 +6,8 @@ import LogoLogin from "../logo-login";
 export function MainLayout() {
   return (
     <SidebarProvider defaultOpen={true}>
-      <AppSidebar />
       <SidebarInset>
         <header className="sticky top-0 h-24 flex items-center border-b border-border bg-card-elevated px-8 shadow-medium backdrop-blur-sm z-40">
-          {/* Toggle button */}
-          <SidebarTrigger className="mr-6 hover:bg-primary/10 p-2 rounded-lg transition-smooth z-50 text-primary hover:text-white hover:bg-primary" />
-
           <div className="mr-10 py-5">
             <LogoLogin />
           </div>
@@ -23,6 +19,9 @@ export function MainLayout() {
                 Agricultural Excellence
               </span>
             </div>
+
+            {/* Toggle button on right */}
+            <SidebarTrigger className="ml-6 hover:bg-primary/10 p-2 rounded-lg transition-smooth z-50 text-primary hover:text-white hover:bg-primary" />
           </div>
         </header>
 
@@ -30,6 +29,9 @@ export function MainLayout() {
           <Outlet />
         </main>
       </SidebarInset>
+
+      {/* Sidebar now on the right */}
+      <AppSidebar />
     </SidebarProvider>
   );
 }

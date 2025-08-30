@@ -64,12 +64,13 @@ export function AppSidebar() {
     }`;
 
   return (
-    <Sidebar
-      side="left"
-      variant="sidebar"
-      collapsible="icon"
-      className="sidebar-gradient border-r-2 border-secondary/10 shadow-strong relative overflow-hidden fixed left-0 top-2 bottom-2 z-50 rounded-xl"
-    >
+  <Sidebar
+  side="right"
+  variant="sidebar"
+  collapsible="icon"
+  className="sidebar-gradient border-l-2 border-secondary/10 shadow-strong relative overflow-hidden fixed right-0 top-2 bottom-2 z-50 rounded-xl"
+>
+
       {/* Background Decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 right-4 w-32 h-32 bg-secondary rounded-full animate-float"></div>
