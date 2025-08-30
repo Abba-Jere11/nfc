@@ -79,7 +79,15 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-green-400 flex-shrink-0" />
                   <span className="text-sm text-gray-300">
-                   87 Samuel Ladoke Boulevard, Garki, Abuja
+                    Yobe Investment House,
+                    <br />
+                    816 Ahmadu Bello Way, 
+                    <br />
+                    Central Business District,
+                    <br />
+                    Abuja, FCT,
+                    <br />
+                    Nigeria
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -140,7 +148,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center opacity-0 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mb-4 md:mb-0">
-            <p className="text-gray-400 text-sm">© 2024 Nigerian Food Corporation. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">© 2025 Nigerian Food Corporation. All rights reserved.</p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">
                 Privacy Policy

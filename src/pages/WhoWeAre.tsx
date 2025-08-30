@@ -78,9 +78,9 @@ export default function WhoWeAre() {
       {/* Story Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="items-center">
             <div className="animate-fade-in">
-              <h2 className="font-playfair text-4xl font-bold text-primary mb-6">
+              <h2 className="font-playfair text-center text-4xl font-bold text-primary mb-6">
                 Our Story
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -94,21 +94,6 @@ export default function WhoWeAre() {
               </p>
             </div>
             
-            <div className="animate-fade-in animate-delay-200">
-              <Card className="card-gradient shadow-medium">
-                <CardContent className="p-8">
-                  <h3 className="font-playfair text-2xl font-semibold text-primary mb-4">
-                    Governor's Message
-                  </h3>
-                  <blockquote className="text-muted-foreground italic leading-relaxed">
-                    "Nigerian Food Corporation represents our commitment to agricultural transformation and food security. This initiative demonstrates Yobe State's dedication to leading Nigeria's agricultural renaissance and creating sustainable prosperity for our people."
-                  </blockquote>
-                  <footer className="mt-6 text-primary font-semibold">
-                    — Governor of Yobe State
-                  </footer>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>

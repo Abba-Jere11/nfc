@@ -74,7 +74,7 @@ export function AppSidebar() {
         <div className="mb-4 p-2 pt-2 text-center relative">
           {open ? (
             <div className="flex justify-center items-center">
-              <LogoLogin />
+              {/* <LogoLogin /> */}
             </div>
 
           ) : (

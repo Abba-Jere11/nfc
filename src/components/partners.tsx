@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import partner1 from "../assets/yobe_mill-removebg-preview.png";
-import partner2 from "../assets/oil_mills.png";
-import partner3 from "../assets/meatbg.png";
-import partner4 from "../assets/wheat-removebg-preview.png";
-import partner5 from "../assets/ferttt-removebg-preview.png";
+import partner1 from "../assets/yobe-state-removebg-preview.png";
+import partner2 from "../assets/acccc.png";
+import partner3 from "../assets/Logo-emblem.webp";
+import partner4 from "../assets/cropped-fav.webp";
+import partner5 from "../assets/Thinklab .png";
+import partner6 from "../assets/BOA-Logo.png";
 interface Partner {
   id: number;
   name: string;
@@ -16,38 +17,45 @@ interface Partner {
 const partners: Partner[] = [
   {
     id: 1,
-    name: "Yobe Flour Mills",
+    name: "Yobe State Goverment",
     title: "CEO",
     role: "Chief Executive Officer",
     image: partner1,
   },
   {
     id: 2,
-    name: "Nguru Oil Mills",
+    name: "Acresal",
     title: "VP Growth & Development",
     role: "Strategic Development",
     image: partner2,
   },
   {
     id: 3,
-    name: "Yobe Abbatoir",
+    name: "Federal Ministryy Of Agriculture",
     title: "VP Finance & Operations",
     role: "Financial Strategy",
     image: partner3,
   },
   {
     id: 4,
-    name: "Yobe Wheat Mills",
+    name: "Bank Of Agriculture",
     title: "VP Strategy",
     role: "Business Strategy",
-    image: partner4,
+    image: partner6,
   },
   {
     id: 5,
-    name: "Yobe Fertilizer",
+    name: "ThinkLab Agro-Allied",
     title: "Creative Director",
     role: "Brand & Design",
     image: partner5,
+  },
+  {
+    id: 6,
+    name: "RAAMP",
+    title: "Creative Director",
+    role: "Brand & Design",
+    image: partner4,
   },
 ];
 

@@ -294,6 +294,21 @@ const YobeState = () => {
             </Button>
           </div>
         </div>
+        <div className="animate-fade-in animate-delay-200 max-w-6xl mt-10 mx-auto">
+                      <Card className="card-gradient shadow-medium">
+                        <CardContent className="p-8">
+                          <h3 className="font-playfair text-2xl font-semibold text-primary mb-4">
+                            Governor's Message
+                          </h3>
+                          <blockquote className="text-muted-foreground italic leading-relaxed">
+                            "Nigerian Food Corporation represents our commitment to agricultural transformation and food security. This initiative demonstrates Yobe State's dedication to leading Nigeria's agricultural renaissance and creating sustainable prosperity for our people."
+                          </blockquote>
+                          <footer className="mt-6 text-primary font-semibold">
+                            — Governor of Yobe State
+                          </footer>
+                        </CardContent>
+                      </Card>
+                    </div>
       </section>
       <Footer/>
     </div>

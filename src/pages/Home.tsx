@@ -26,6 +26,7 @@ const subsidiaries = [
     image: fertilizersImage,
     stats: "500M+ Kg Produced",
     color: "secondary",
+    link: "https://yobefertilizer.com", // ✅ add link
   },
   {
     name: "Yobe Meats",
@@ -33,6 +34,7 @@ const subsidiaries = [
     image: meatsImage,
     stats: "200K+ Tonnes Processed",
     color: "primary",
+    link: "https://yobemeats.com",
   },
   {
     name: "Yobe Flour Mills",
@@ -40,6 +42,7 @@ const subsidiaries = [
     image: flourMillsImage,
     stats: "1M+ Tonnes Milled",
     color: "tertiary",
+    link: "https://yobeflourmills.com/",
   },
   {
     name: "Yobe Wheat Mills",
@@ -47,6 +50,7 @@ const subsidiaries = [
     image: wheat,
     stats: "750K+ Tonnes Capacity",
     color: "accent",
+    link: "https://wheatglobalmills.com",
   },
   {
     name: "Nguru Oil Mills",
@@ -54,8 +58,10 @@ const subsidiaries = [
     image: oilMillsImage,
     stats: "300K+ Litres Daily",
     color: "secondary",
+    link: "https://nguruoilmills.com",
   },
 ];
+
 
 const achievements = [
   { icon: Users, value: 25000, suffix: "+", label: "Farmers Empowered", color: "text-primary" },
@@ -140,7 +146,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               onClick={scrollToAbout}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-6 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl rounded-lg sm:rounded-xl backdrop-blur-sm"
+              className="border-2 border-white text-green-800 hover:bg-white hover:text-primary font-bold px-6 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl rounded-lg sm:rounded-xl backdrop-blur-sm"
             >
               Learn More
             </Button>
@@ -200,7 +206,7 @@ export default function Home() {
                   <img
                     src={subsidiary.image}
                     alt={subsidiary.name}
-                    className="w-full h-56 sm:h-64 md:h-72 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-56 sm:h-64 md:h-72 lg:h-80 object-contain transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
                     <Badge className={`bg-${subsidiary.color} text-${subsidiary.color}-foreground px-3 sm:px-4 py-1 sm:py-2`}>
@@ -212,8 +218,17 @@ export default function Home() {
                   <h3 className="font-playfair text-xl sm:text-2xl font-bold text-primary mb-3">{subsidiary.name}</h3>
                   <p className="text-sm sm:text-base text-muted-foreground mb-4">{subsidiary.description}</p>
                   <div className="flex items-center text-secondary font-semibold">
-                    <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                    <span>Industry Leading Performance</span>
+                     <a 
+  href={subsidiary.link} 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <Button className="bg-secondary hover:bg-secondary-dark text-secondary-foreground px-6 sm:px-12 py-4 sm:py-6 text-sm sm:text-xl rounded-lg sm:rounded-xl">
+    Visit Website
+    <ArrowRight className="ml-2 sm:ml-3 h-5 sm:h-6 w-5 sm:w-6" />
+  </Button>
+</a>
+
                   </div>
                 </CardContent>
               </Card>
