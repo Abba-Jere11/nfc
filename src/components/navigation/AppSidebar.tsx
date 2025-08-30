@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import {
   Home,
   Users,
@@ -11,6 +12,9 @@ import {
   ChevronDown,
   ChevronRight,
   Sparkles,
+  Info,
+  InfoIcon,
+  Building2,
 } from "lucide-react";
 import {
   Sidebar,
@@ -35,7 +39,7 @@ const menuItems = [
   { title: "News & Media", url: "/news", icon: Newspaper },
   { title: "Gallery", url: "/gallery", icon: Camera },
   { title: "Contact", url: "/contact", icon: Phone },
-  { title: "Investment Opportunity", url: "/investment", icon: Phone },
+  { title: "Investment Opportunity", url: "/investment", icon: Building2 },
 ];
 
 const aboutSubmenu = [
@@ -54,14 +58,17 @@ export function AppSidebar() {
   const isAboutActive = aboutSubmenu.some(item => isActive(item.url));
 
   const getNavClasses = (active: boolean) =>
-    `w-full justify-start transition-spring group ${active
+    `w-full transition-spring group ${active
       ? "bg-primary text-primary-foreground shadow-medium hover:bg-primary-dark"
       : "hover:bg-muted hover:text-primary hover:shadow-soft"
     }`;
 
   return (
     <Sidebar
-      className={`${open ? "w-80" : "w-25"} sidebar-gradient border-r-2 border-secondary/10 shadow-strong relative overflow-hidden fixed left-0 top-0 h-full z-50`}
+      side="left"
+      variant="sidebar"
+      collapsible="icon"
+      className="sidebar-gradient border-r-2 border-secondary/10 shadow-strong relative overflow-hidden fixed left-0 top-2 bottom-2 z-50 rounded-xl"
     >
       {/* Background Decoration */}
       <div className="absolute inset-0 opacity-5">
@@ -72,22 +79,15 @@ export function AppSidebar() {
       <SidebarContent className="p-2 pt-0 relative z-10">
         {/* Logo Section */}
         <div className="mb-4 p-2 pt-2 text-center relative">
-          {open ? (
-            <div className="flex justify-center items-center">
-              {/* <LogoLogin /> */}
-            </div>
 
-          ) : (
-            <div className="w-12 h-12 bg-gradient-to-br from-primary via-secondary to-accent rounded-xl mx-auto shadow-medium flex items-center justify-center animate-pulse-glow">
-              <span className="text-white font-bold text-lg">N</span>
-            </div>
-          )}
         </div>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-primary font-bold mb-3 text-base">
-            {open && "Main Navigation"}
-          </SidebarGroupLabel>
+          {open && (
+            <SidebarGroupLabel className="text-primary font-bold mb-3 text-base">
+              Main Navigation
+            </SidebarGroupLabel>
+          )}
 
           <SidebarGroupContent>
             <SidebarMenu className="space-y-2">
@@ -96,35 +96,32 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <NavLink
                       to={item.url}
-                      className={`${getNavClasses(isActive(item.url))} px-4 py-3 rounded-xl animate-fade-in animate-delay-${(index + 1) * 100}`}
+                      className={`${getNavClasses(isActive(item.url))} px-4 py-3 rounded-xl animate-fade-in animate-delay-${(index + 1) * 100} ${!open ? 'justify-center' : 'justify-start'}`}
+                      title={!open ? item.title : undefined}
                     >
-                      <item.icon className="mr-4 h-6 w-6 group-hover:scale-110 transition-spring" />
-                      {open && <span className="font-semibold text-lg">{item.title}</span>}
+                      <item.icon className="h-6 w-6 group-hover:scale-110 transition-spring flex-shrink-0" />
+                      {open && <span className="font-semibold text-lg ml-4">{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
 
-              {/* About Us Dropdown */}
-              <SidebarMenuItem>
-                <Collapsible open={aboutOpen} onOpenChange={setAboutOpen}>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className={`${getNavClasses(isAboutActive)} px-4 py-3 rounded-xl`}>
-                      <Building className="mr-4 h-6 w-6 group-hover:scale-110 transition-spring" />
-                      {open && (
-                        <>
-                          <span className="font-semibold text-lg flex-1 text-left">About Us</span>
-                          {aboutOpen ? (
-                            <ChevronDown className="h-5 w-5 transition-spring" />
-                          ) : (
-                            <ChevronRight className="h-5 w-5 transition-spring" />
-                          )}
-                        </>
-                      )}
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
+              {/* About Us Dropdown - Only show when expanded */}
+              {open && (
+                <SidebarMenuItem>
+                  <Collapsible open={aboutOpen} onOpenChange={setAboutOpen}>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton className={`${getNavClasses(isAboutActive)} px-4 py-3 rounded-xl justify-start`}>
+                        <InfoIcon className="h-6 w-6 group-hover:scale-110 transition-spring flex-shrink-0" />
+                        <span className="font-semibold text-lg flex-1 text-left ml-4">About Us</span>
+                        {aboutOpen ? (
+                          <ChevronDown className="h-5 w-5 transition-spring" />
+                        ) : (
+                          <ChevronRight className="h-5 w-5 transition-spring" />
+                        )}
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
 
-                  {open && (
                     <CollapsibleContent>
                       <SidebarMenuSub className="ml-10 mt-3 space-y-2">
                         {aboutSubmenu.map((subItem, index) => (
@@ -144,13 +141,27 @@ export function AppSidebar() {
                         ))}
                       </SidebarMenuSub>
                     </CollapsibleContent>
-                  )}
-                </Collapsible>
-              </SidebarMenuItem>
+                  </Collapsible>
+                </SidebarMenuItem>
+              )}
+
+              {/* About Us Icon Only - Show when collapsed */}
+              {!open && (
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to="/who-we-are"
+                      className={`${getNavClasses(isAboutActive)} px-4 py-3 rounded-xl justify-center`}
+                      title="About Us"
+                    >
+                      <Info className="h-6 w-6 group-hover:scale-110 transition-spring" />
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
       </SidebarContent>
     </Sidebar>
   );

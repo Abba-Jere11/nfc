@@ -1,38 +1,35 @@
 import { Outlet } from "react-router-dom";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/navigation/AppSidebar";
 import LogoLogin from "../logo-login";
 
 export function MainLayout() {
   return (
-    <div className="min-h-screen flex w-full bg-background">
+    <SidebarProvider defaultOpen={true}>
       <AppSidebar />
-      
-      <div className="flex-1 flex flex-col">
+      <SidebarInset>
         <header className="sticky top-0 h-24 flex items-center border-b border-border bg-card-elevated px-8 shadow-medium backdrop-blur-sm z-40">
-         
-          <SidebarTrigger className="mr-6 hover:bg-primary/10 p-2 rounded-lg transition-smooth z-50 text-white hover:text-white hover:bg-white" />
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-3">
-             <SidebarTrigger className="mr-2 hover:bg-primary/10 p-2 rounded-lg transition-smooth z-50" />
-              
-            </div>
-          </div>
-           <div className="mr-10 p-5">
+          {/* Toggle button */}
+          <SidebarTrigger className="mr-6 hover:bg-primary/10 p-2 rounded-lg transition-smooth z-50 text-primary hover:text-white hover:bg-primary" />
+
+          <div className="mr-10 py-5">
             <LogoLogin />
           </div>
+
           <div className="ml-auto flex items-center space-x-4">
             <div className="hidden md:flex items-center space-x-2 bg-secondary/10 px-4 py-2 rounded-full">
               <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-              <span className="text-secondary font-medium text-sm">Agricultural Excellence</span>
+              <span className="text-secondary font-medium text-sm">
+                Agricultural Excellence
+              </span>
             </div>
           </div>
         </header>
-        
-        <main className="flex-1 bg-background relative">
+
+        <main className="flex-1 bg-background relative min-h-screen">
           <Outlet />
         </main>
-      </div>
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }
